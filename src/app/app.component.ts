@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // Import PrimeNG modules
 import { AccordionModule } from "primeng/accordion";
@@ -71,6 +71,8 @@ import { TreeModule } from "primeng/tree";
 import { TreeTableModule } from "primeng/treetable";
 import { TextareaModule } from "primeng/textarea";
 import { ProgressSpinnerModule } from "primeng/progressspinner";
+import{ FloatLabelModule } from 'primeng/floatlabel'
+import{ SelectModule } from 'primeng/select'
 @Component({
   selector: "app-root",
   standalone: true,
@@ -146,12 +148,18 @@ import { ProgressSpinnerModule } from "primeng/progressspinner";
     TooltipModule,
     TreeModule,
     TreeTableModule,
+    FloatLabelModule,
+    SelectModule
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
 export class AppComponent {
   counter = 0;
+
+  control = new FormControl<string>('b')
+
+  options = [{label: 'a', value: 'a'}, {label: 'b', value: 'b'}]
 
   onClick() {
     this.counter++;
